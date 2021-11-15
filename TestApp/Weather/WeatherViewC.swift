@@ -11,7 +11,9 @@ class WeatherViewC: UIViewController {
     private let weatherViewmodel = WeatherViewModel()
     var employeesDataSource = [Employee]()
     @IBOutlet weak var weatherTableView: UITableView!
-    
+    deinit {
+      NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Employees List"
